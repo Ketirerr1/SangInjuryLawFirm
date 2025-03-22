@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sang Injury Law Firm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #ffffff;
+      --secondary-color: #eaeaea;
+      --accent-color: #a7882c;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #000 url('https://www.transparenttextures.com/patterns/asfalt-dark.png') repeat;
+      animation: bgMove 30s linear infinite;
+      color: var(--secondary-color);
+      line-height: 1.6;
+      transition: background 0.5s ease;
+    }
+    @keyframes bgMove {
+      from { background-position: 0 0; }
+      to { background-position: 100% 100%; }
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--accent-color);
+    }
+    /* Global typography */
+    h1, h2, .contact-title {
+      font-family: 'Playfair Display', serif;
+    }
+    /* Hero title without stroke */
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      animation: glow 1.5s ease-in-out infinite alternate;
+      transition: transform 0.3s ease;
+    }
+    .hero-title:hover {
+      transform: scale(1.05);
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px var(--primary-color); }
+      to { text-shadow: 0 0 8px var(--primary-color); }
+    }
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-bottom: 0.5rem;
+      width: 100%;
+    }
+    .contact-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    /* Navbar styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.9);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--primary-color);
+    }
+    .navbar .logo img {
+      height: 60px;
+      transition: transform 0.3s ease;
+    }
+    .navbar .logo img:hover {
+      transform: scale(1.05);
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+    }
+    .navbar ul li {
+      margin-left: 2rem;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .navbar ul li:hover {
+      transform: translateY(-2px);
+    }
+    .navbar ul li::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--primary-color);
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s ease;
+    }
+    .navbar ul li:hover::after {
+      width: 100%;
+    }
+    /* Removed Splash Screen CSS */
+    
+    /* Container for main content with fade in effect */
+    #main-content {
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    /* Hero section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://media-hosting.imagekit.io//841e6d748ac34a30/03_22_2025_X-Design%20(1).png?Expires=1837291610&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=TH~2iqDaHRZX41XYq0fFQvO4l8OyCR94OLkIUmvC8-CMmJbzUGEeNO~vp62-e-Hpl8ac6lBHdWzLumdbIJ~dd2jfeq02JAxU-FrHo6Uj6wS9P9NZho-E4J5GD4tYmgxu5MuJy84g6KaMHnA0M92hW9ybVAP~fmz2B~fgjv130Qa9qWLHrDe~UKYbMCRSn3hyeKhtXvwOhm74ycut4bn0ReItBjblA8mVKtRqiNayksU0XYtR5hXcUp7T7MGZLZfa4htCXM4NaFPqX3MqZ6~rzeqahDrInK~cSUVKgz75sRjysh0-DWI6wmMH-1hnMgTbbcEX4qkElCpSiZ~RlIgrrA__') no-repeat center 40%/cover;
+      filter: grayscale(100%);
+      border-bottom: 5px solid var(--primary-color);
+      animation: fadeIn 2s ease-out;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      animation: fadeInUp 1.8s ease-out;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+    .cta-btn {
+      padding: 0.8rem 2rem;
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      border-radius: 30px;
+      color: var(--primary-color);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    }
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.1);
+      transform: skewX(-45deg);
+      transition: left 0.5s;
+    }
+    .cta-btn:hover::before {
+      left: 100%;
+    }
+    .cta-btn:hover {
+      background: var(--primary-color);
+      color: #000;
+      transform: scale(1.05);
+    }
+    section {
+      padding: 4rem 2rem;
+      background-color: transparent;
+      margin-top: 4rem;
+      border-top: 2px solid var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
+    }
+    .about-section { padding: 4rem 2rem; }
+    .about-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-text, .about-img {
+      flex: 1 1 300px;
+      margin: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--primary-color);
+      border-radius: 10px;
+      background: rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .about-text:hover, .about-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.9);
+    }
+    .about-text { text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
+    .about-img img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.9);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      image-rendering: crisp-edges;
+    }
+    .about-img img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.95);
+    }
+    .services-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, rgba(27,27,27,0.95), rgba(0,0,0,0.95)), url('https://www.transparenttextures.com/patterns/diagmonds.png') repeat;
+      background-blend-mode: overlay;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.9);
+    }
+    .services-container {
+      max-width: 1200px;
+      margin: auto;
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .services-header h2 {
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      color: var(--primary-color);
+    }
+    .services-header p {
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #333;
+      transition: transform 0.3s ease;
+    }
+    .service-item:hover { transform: translateY(-5px); }
+    .service-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      border: 3px solid var(--primary-color);
+      border-radius: 50%;
+      margin-right: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+    .service-content h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    .service-content p {
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      line-height: 1.5;
+    }
+    .excellence-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, rgba(27,27,27,0.95), rgba(0,0,0,0.95)), url('https://www.transparenttextures.com/patterns/diagmonds.png') repeat;
+      background-blend-mode: overlay;
+      border-top: 2px solid var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.9);
+    }
+    .excellence-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .excellence-header i {
+      font-size: 4.5rem;
+      color: var(--primary-color);
+      animation: glow 1.5s ease-in-out infinite alternate;
+      margin-bottom: 0.5rem;
+    }
+    .excellence-header h2 {
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      color: var(--primary-color);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    .excellence-content {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+    .excellence-decor {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .decor-item {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--primary-color);
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
+    }
+    .decor-item:hover { transform: translateY(-5px); }
+    .decor-item h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    .decor-item p {
+      font-size: 1rem;
+      margin: 0;
+    }
+    .offices {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+    .office {
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+      border: 1px solid var(--primary-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .office:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.9);
+    }
+    .office h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.6rem;
+      color: var(--primary-color);
+      border-bottom: none;
+      padding-bottom: 0.3rem;
+    }
+    .office p {
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
+    .office a {
+      display: block;
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
+      color: var(--primary-color);
+      transition: color 0.3s ease;
+    }
+    .office a:hover { color: var(--accent-color); }
+    .office-details {
+      margin-top: 0.75rem;
+      border-top: 1px solid #333;
+      padding-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #bbb;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .office-details span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .office-details i { color: var(--primary-color); }
+    .contact-section {
+      background: url('https://www.transparenttextures.com/patterns/black-linen.png') repeat, #000;
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 2px solid var(--primary-color);
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+    }
+    .contact-box {
+      max-width: 600px;
+      margin: auto;
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+      border: 1px solid var(--primary-color);
+    }
+    .contact-details {
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+      margin: 1.5rem 0;
+    }
+    .contact-details .detail-item {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      font-size: 1.2rem;
+    }
+    .contact-details i { font-size: 1.5rem; color: var(--primary-color); }
+    .additional-contacts {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      line-height: 1.4;
+    }
+    .footer {
+      background: #000;
+      padding: 2rem;
+      text-align: center;
+      color: #777;
+      border-top: 2px solid var(--primary-color);
+    }
+    .footer .social-icons a {
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .footer .social-icons a:hover { color: var(--primary-color); }
+    @media (min-aspect-ratio: 16/9) {
+      .hero { background-position: center top; }
+    }
+    @media (max-width: 768px) {
+      .about-container, .services-container { flex-direction: column; }
+      .hero-title { font-size: 3rem; }
+      .service-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .service-img { margin-bottom: 1rem; }
+      .contact-box { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Content -->
+  <div id="main-content">
+    <nav class="navbar">
+      <a class="logo" href="#hero">
+        <img src="https://sanginjurylaw.com/wp-content/uploads/2024/07/Logo.png" alt="Sang Injury Law Logo">
+      </a>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#excellence">Excellence</a></li>
+        <li><a href="#offices">Offices</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">SANG INJURY LAW FIRM</h1>
+        <p>Strong and caring legal help for you</p>
+        <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
+          Get a Free Consultation
+        </button>
+      </div>
+    </section>
+    
+    <section id="about" class="section about-section">
+      <h2>About Me and My Journey</h2>
+      <div class="about-container">
+        <div class="about-text">
+          <p>
+            My name is Sang Min Lim. I was born in Seoul, South Korea and moved to the United States to study at Brown University. While I was there, I saw K-pop become popular in America, which inspired me to try a music career.
+          </p>
+          <p>
+            After earning my BA in Economics at Brown, I moved to Los Angeles to follow my love for music and later went to USC Law School. Balancing music and law taught me the value of truly connecting with people. That’s why I focus on a legal practice that puts clients first.
+          </p>
+          <p>
+            I passed three bar exams on my first try and am now admitted to practice in Arizona, California, Colorado, Nevada, New Mexico, Texas, and Washington.
+          </p>
+        </div>
+        <div class="about-img">
+          <img src="https://media-hosting.imagekit.io//df6d4029bdca46a4/03_22_2025_X-Design.png?Expires=1837291295&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=V36057232DpCdlOfUp63Sx-1oVhfcVh7Oizjqejw985Sll-FGSI7ZkWdDpc8LOOUSdbONJmnb~i3dwr9IrtIOJ6OWZ4pp0BLSzWyIbQvyL5MTS3tUx1xqAjbY2Yx5RyWAwthqnx53d6kAytkSc6f~ati-mJvt5V7jvP-9O6qHdrbStZahVKapBkZYaXw2hIpiRmZXNlTVCzqzD0WDBLA61LmANaJBCLQWkphWEV0oTyfv9nYuZGX61HHkZgAB295Q5w8SFKkcZf7aj5NQELt2IuyBSDtEAOClfc4-KrUe3qIxFt8KLRcS0R3CuM-5nXpxdI8oCzT7xGJZhx4zSmufw__" alt="Sang Min Lim">
+        </div>
+      </div>
+    </section>
+    
+    <section id="services" class="services-section">
+      <div class="services-container">
+        <div class="services-header">
+          <h2>Legal Services I Offer</h2>
+          <p>Practical legal help that fits your needs</p>
+        </div>
+        <div class="service-item">
+          <img src="https://kanthakalaw.com/wp-content/uploads/2022/11/car-crash.jpg" alt="Car Accident" class="service-img">
+          <div class="service-content">
+            <h3>Car Accidents</h3>
+            <p>
+              Car accidents can be life-changing. I look into every detail to help you get the compensation you deserve.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="https://sanginjurylaw.com/wp-content/uploads/2024/07/Motorcycle-1.webp" alt="Motorcycle Accident" class="service-img">
+          <div class="service-content">
+            <h3>Motorcycle Accidents</h3>
+            <p>
+              Motorcycle accidents can be very serious. I work hard to investigate your case and get you the money you need for medical bills and lost wages.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="https://img.freepik.com/premium-photo/black-white-photo-broken-bike-road-dented-car-highway-after-collision-generative-ai_845977-6055.jpg" alt="Bicycle Accident" class="service-img">
+          <div class="service-content">
+            <h3>Bicycle Accidents</h3>
+            <p>
+              Bicycle accidents can cause long-term problems. I offer personal support and make sure those responsible are held accountable.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="https://sanginjurylaw.com/wp-content/uploads/2024/07/Slip-and-fall.webp" alt="Slip and Fall" class="service-img">
+          <div class="service-content">
+            <h3>Slip and Fall</h3>
+            <p>
+              Slip and fall accidents are not your fault. I carefully investigate your case to help you get justice and financial help.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="https://sanginjurylaw.com/wp-content/uploads/2024/07/Truck.webp" alt="Truck Accident" class="service-img">
+          <div class="service-content">
+            <h3>Truck Accidents</h3>
+            <p>
+              Truck accidents are very serious. I gather all the important details and fight hard for your rights.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="https://sanginjurylaw.com/wp-content/uploads/2024/07/Uninsured.webp" alt="Uninsured Motor Accident" class="service-img">
+          <div class="service-content">
+            <h3>Uninsured Motor Accidents</h3>
+            <p>
+              Accidents with uninsured drivers can be tricky. I work through every option to get you compensation.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="https://sanginjurylaw.com/wp-content/uploads/2024/07/Rideshare.webp" alt="Rideshare Accident" class="service-img">
+          <div class="service-content">
+            <h3>Rideshare Accidents</h3>
+            <p>
+              Rideshare accidents need special care. I know how to handle cases involving companies like Uber and Lyft.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="https://sanginjurylaw.com/wp-content/uploads/2024/07/Pedestrian.webp" alt="Pedestrian Accident" class="service-img">
+          <div class="service-content">
+            <h3>Pedestrian Accidents</h3>
+            <p>
+              If you’ve been hit as a pedestrian, I’m here to help you get fair compensation for your injuries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="excellence" class="excellence-section">
+      <div class="excellence-header">
+        <i class="fas fa-trophy"></i>
+        <h2>My Commitment to Excellence</h2>
+      </div>
+      <div class="excellence-content">
+        <p>
+          I believe in doing my best work every time. I prepare every case carefully and fight for you in court with honesty and hard work.
+        </p>
+        <div class="excellence-decor">
+          <div class="decor-item">
+            <h3>Award-Winning</h3>
+            <p>I've been recognized for my work and dedication.</p>
+          </div>
+          <div class="decor-item">
+            <h3>Proven Results</h3>
+            <p>I have a strong record of success in my cases.</p>
+          </div>
+          <div class="decor-item">
+            <h3>Client Focus</h3>
+            <p>Your needs always come first.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="offices" class="section section-light">
+      <h2>Where You Can Find Us</h2>
+      <div class="offices">
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> ALBUQUERQUE (NM)</h4>
+          <a href="https://maps.google.com/?q=500+Marquette+Ave+NW,+Ste+1200,+Albuquerque,+NM+87102-5312" target="_blank">500 Marquette Ave NW, Ste 1200</a>
+          <p><i class="fas fa-phone"></i> 505-388-2286</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> AUSTIN (TX)</h4>
+          <a href="https://maps.google.com/?q=111+Congress+Ave,+Ste+500,+Austin,+TX+78701" target="_blank">111 Congress Ave, Ste 500</a>
+          <p><i class="fas fa-phone"></i> 512-638-8265</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> DALLAS (TX)</h4>
+          <a href="https://maps.google.com/?q=2550+Pacific+Ave,+Ste+700,+Dallas,+TX+75226" target="_blank">2550 Pacific Ave, Ste 700</a>
+          <p><i class="fas fa-phone"></i> 214-271-8756</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> DENVER (CO)</h4>
+          <a href="https://maps.google.com/?q=999+18th+St,+Ste+3000,+Denver,+CO+80202" target="_blank">999 18th St, Ste 3000</a>
+          <p><i class="fas fa-phone"></i> 303-285-1566</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> LAS VEGAS (NV)</h4>
+          <a href="https://maps.google.com/?q=4425+Spring+Mountain+Rd,+Ste+200,+Las+Vegas,+NV+89102" target="_blank">4425 Spring Mountain Rd, Ste 200</a>
+          <p><i class="fas fa-phone"></i> 702-760-3361</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> LOS ANGELES (CA)</h4>
+          <a href="https://maps.google.com/?q=3660+Wilshire+Blvd,+Ste+940,+Los+Angeles,+CA+90010" target="_blank">3660 Wilshire Blvd, Ste 940</a>
+          <p><i class="fas fa-phone"></i> 213-921-3366</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> HOUSTON (TX)</h4>
+          <a href="https://maps.google.com/?q=1202+Fannin+St,+Ste+262,+Houston,+TX+77002" target="_blank">1202 Fannin St, Ste 262</a>
+          <p><i class="fas fa-phone"></i> 713-568-3138</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> PHOENIX (AZ)</h4>
+          <a href="https://maps.google.com/?q=2+N+Central+Ave,+Ste+1800,+Phoenix,+AZ+85004-2139" target="_blank">2 N Central Ave, Ste 1800</a>
+          <p><i class="fas fa-phone"></i> 602-806-7158</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> RENO (NV)</h4>
+          <a href="https://maps.google.com/?q=5470+Kietzke+Ln,+Ste+300,+Reno,+NV+89511" target="_blank">5470 Kietzke Ln, Ste 300</a>
+          <p><i class="fas fa-phone"></i> 775-567-3768</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> SACRAMENTO (CA)</h4>
+          <a href="https://maps.google.com/?q=500+Capitol+Mall,+Ste+2350,+Sacramento,+CA+95814" target="_blank">500 Capitol Mall, Ste 2350</a>
+          <p>Sacramento, CA 95814<br><i class="fas fa-phone"></i> 916-273-8368</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> SAN DIEGO (CA)</h4>
+          <a href="https://maps.google.com/?q=350+10th+Ave,+Ste+1000,+San+Diego,+CA+92101" target="_blank">350 10th Ave, Ste 1000</a>
+          <p>San Diego, CA 92101<br><i class="fas fa-phone"></i> 619-837-2182</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> SAN FRANCISCO (CA)</h4>
+          <a href="https://maps.google.com/?q=50+California+St,+Ste+1500,+San+Francisco,+CA+94111" target="_blank">50 California St, Ste 1500</a>
+          <p>San Francisco, CA 94111<br><i class="fas fa-phone"></i> 415-651-7521</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> SAN JOSE (CA)</h4>
+          <a href="https://maps.google.com/?q=99+S+Almaden+Blvd,+Ste+600,+San+Jose,+CA+95113" target="_blank">99 S Almaden Blvd, Ste 600</a>
+          <p>San Jose, CA 95113<br><i class="fas fa-phone"></i> 408-677-2155</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> SEATTLE (WA)</h4>
+          <a href="https://maps.google.com/?q=600+Stewart+St,+Ste+400,+Seattle,+WA+98101-1217" target="_blank">600 Stewart St, Ste 400</a>
+          <p>Seattle, WA 98101-1217<br><i class="fas fa-phone"></i> 206-737-8871</p>
+        </div>
+        <div class="office">
+          <h4><i class="fas fa-map-marker-alt"></i> TUCSON (AZ)</h4>
+          <a href="https://maps.google.com/?q=130+E+Congress+St,+Ste+200,+Tucson,+AZ+85701" target="_blank">130 E Congress St, Ste 200</a>
+          <p>Tucson, AZ 85701<br><i class="fas fa-phone"></i> 520-875-3865</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact" class="section contact-section">
+      <div class="contact-box">
+        <h2 class="contact-title">Get In Touch</h2>
+        <div class="contact-details">
+          <div class="detail-item"><i class="fas fa-phone"></i> 800-725-0571</div>
+          <div class="detail-item"><i class="fas fa-envelope"></i> <a href="mailto:info@sanginjurylaw.com">info@sanginjurylaw.com</a></div>
+        </div>
+        <div class="additional-contacts">
+          <p>
+            Other phone numbers:<br>
+            505-388-2286 | 512-638-8265 | 214-271-8756<br>
+            303-285-1566 | 702-760-3361 | 213-921-3366<br>
+            713-568-3138 | 602-806-7158 | 619-837-2182 | 206-737-8871
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <footer class="footer">
+      <p>&copy; 2025 Sang Injury Law Firm. All Rights Reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/sanginjurylawfirm/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
